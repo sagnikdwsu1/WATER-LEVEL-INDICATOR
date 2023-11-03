@@ -1,0 +1,38 @@
+module TB;
+reg clk,r,T;
+wire P;
+reg[3:0]count;
+wire[3:0]C;
+Tank d(T,r,clk,count,C,P);
+initial 
+begin
+clk=1;
+forever#5clk=~clk;
+end
+initial begin
+r-0;count=1;T=0;
+#10;
+r=1;
+#10;
+count=5;
+#10;
+count=0'
+#10;
+count=10;
+#10;
+count=8;
+#10;
+T=1;count=6;
+#10;
+count=0;
+#10;
+count=1;
+#10;
+r=0;
+#10;
+count=5;
+#10;
+count=10;
+#10;
+$finish;end
+endmodule

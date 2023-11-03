@@ -1,0 +1,41 @@
+module Reservior(r,clk,p,count);
+input r,clk; 
+input[3:0] count;
+output p;
+reg p;
+always@(posedge clk)
+begin
+if(r==1)begin
+if(count==10)
+p<=0;
+else if(count<=2)
+p<=1;
+elseif(count>2&&count!=10)
+p<=p;
+end
+else if(r==0)
+p<=0;
+end 
+endmodule
+module Tank(T,r,clk,count,C,P);
+input T,clk,r;
+output[3:0]C;
+output P;
+input[3:0]count;
+reg[3:0]c;
+assign C=c;
+wire p;
+assign P=p;
+Reservior dut(r,clk,p,count);always@(posedge(clk),p,T)begin c=count;
+if(T==1&&p==0)begin
+if(c==0)
+c=0;
+else begin
+c=c-1; end
+else if(T==0 && p==1)begin if(c==10)begin
+c=c; end
+else begin
+c=c+1; end
+end
+else begin c=c; end
+endmodule
